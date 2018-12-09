@@ -2,3 +2,4 @@ node_modules/
 .idea
 package.lock.json
 model/db.js
+model/pool.js
