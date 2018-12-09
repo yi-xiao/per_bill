@@ -3,3 +3,5 @@ node_modules/
 package.lock.json
 model/db.js
 model/pool.js
+model/Sequelize.js
+config/config.js

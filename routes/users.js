@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../model/pool');
+const userModel = require('../orm/model/userModel');
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
-    let sql = 'select * from user';
-    let result = await db.query(sql);
+    // let sql = 'select * from user';
+    // let result = await db.query(sql);
+    let result = await userModel.findAll();
     res.send(result);
 });
 

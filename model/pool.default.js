@@ -1,15 +1,8 @@
 const mysql = require('mysql');
-
-const options = {
-	host: 'localhost',
-	port: '3306',
-	user: 'root',
-	database: '',
-	password: ''
-}
+const config = require('../config/config');
 
 const pool = mysql.createPool({
-	...options
+	...config.mysql
 })
 
 const Pool = {};
