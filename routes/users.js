@@ -3,7 +3,7 @@
 */
 const express = require('express');
 const router = express.Router();
-const userService = require('../services/userServices');
+const userService = require('../orm/services/userServices');
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {

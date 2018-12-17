@@ -1,6 +1,6 @@
-const paydetailModel = require('../orm/model/paydetailModel');
-const categoryModel = require('../orm/model/categoryModel');
-const userModel = require('../orm/model/userModel');
+const paydetailModel = require('../model/paydetailModel');
+const categoryModel = require('../model/categoryModel');
+const userModel = require('../model/userModel');
 
 //定义关联关系
 paydetailModel.belongsTo(userModel,{foreignKey: 'user_id'});

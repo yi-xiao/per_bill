@@ -3,7 +3,7 @@
 */
 const express = require('express');
 const router = express.Router();
-const paydetailService = require('../services/detailServices');
+const paydetailService = require('../orm/services/detailServices');
 
 router.get('/', async (req,res) => {
     //todo 所有明细

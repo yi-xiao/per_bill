@@ -1,4 +1,4 @@
-const userModel = require('../orm/model/userModel');
+const userModel = require('../model/userModel');
 
 class UserService {
     async createUser (info) {

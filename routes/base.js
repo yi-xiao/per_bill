@@ -4,7 +4,7 @@
 const express = require('express');
 const router = express.Router();
 
-const CategoryService = require('../services/categoryService');
+const CategoryService = require('../orm/services/categoryService');
 
 router.get('/', async (req,res) => {
     //基础类型列表

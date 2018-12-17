@@ -1,4 +1,4 @@
-const categoryModel = require('../orm/model/categoryModel');
+const categoryModel = require('../model/categoryModel');
 
 class CategoryService {
     async getCategoryList () {
