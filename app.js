@@ -6,6 +6,9 @@ const favicon = require('serve-favicon');
 
 const app = express();
 
+
+global.__ROOT = __dirname; //设置全局根路径
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
