@@ -4,6 +4,7 @@
 const express = require('express');
 const router = express.Router();
 const userService = require('../orm/services/userServices');
+const mediaService = require('../orm/services/mediaServices');
 
 const upload = require('../middleware/uploadWare');
 
@@ -14,7 +15,14 @@ router.get('/', async (req, res, next) => {
 
 /* create user */
 router.post('/createUser', async (req, res, next) => {
-    res.send(await userService.createUser(req.body));
+    console.log(req.body)
+    console.log(req.query)
+    if(req.body.name){
+        res.send(await userService.createUser(req.body));
+    }else{
+        res.send('params errors')
+    }
+    
 });
 
 /* update user */
@@ -31,14 +39,19 @@ router.post('/updateUser', async (req, res, next) => {
 /* update user */
 router.post('/uploadAvatar', upload.any() ,async (req, res, next) => {
     var file = req.files;
-
+    let info = '';
+    //当前只用于头像上传
+    
     // console.log('文件类型：%s', file.mimetype);
     // console.log('原始文件名：%s', file.originalname);
     // console.log('文件大小：%s', file.size);
     // console.log('文件保存路径：%s', file.path);
     console.log(file)
+    if(file && file[0]){
+        info = await mediaService.createMedia(file[0]);
+    }
 
-    res.send({ret_code: '0'});
+    res.send({ret_code: '0', info});
 });
 
 module.exports = router;

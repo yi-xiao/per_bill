@@ -4,7 +4,7 @@ let { STRING,DATE,INTEGER } = Sequelize;
 const UserModel = Models.define('user', {
     name: STRING,
     nickName: STRING,
-    age: INTEGER,
+    birth: DATE,
     sex: INTEGER,
     avatar: STRING,
     created_at: DATE,
