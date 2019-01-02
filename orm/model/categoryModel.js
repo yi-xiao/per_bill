@@ -1,8 +1,9 @@
 let { Sequelize, Models } = require('../../model/Sequelize');
-let { STRING } = Sequelize;
+let { STRING,DATE } = Sequelize;
 
 const categoryModel = Models.define('category',{
-    type: STRING
+    type: STRING,
+    deleted_at: DATE
 }, {
     freezeTableName: true,
     timestamps: false

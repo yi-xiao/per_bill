@@ -16,4 +16,9 @@ router.post('/updateCategory', async (req,res) => {
     res.send(await CategoryService.updateCategory(req.body));
 });
 
+router.post('/remove', async (req,res) => {
+    //软删除类目
+    res.send(await CategoryService.deleteCategory(req.body.id));
+});
+
 module.exports = router;
