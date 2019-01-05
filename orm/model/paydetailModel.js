@@ -5,6 +5,7 @@ const paydetailModel = Models.define('paydetail',{
     user_id: INTEGER,
     type: STRING,
     price: STRING,
+    date: DATE,
     created_at: DATE,
     updated_at: DATE
 }, {
