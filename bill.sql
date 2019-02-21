@@ -1,3 +1,18 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost_3306
+Source Server Version : 50714
+Source Host           : localhost:3306
+Source Database       : bill
+
+Target Server Type    : MYSQL
+Target Server Version : 50714
+File Encoding         : 65001
+
+Date: 2019-02-21 09:35:18
+*/
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -6,31 +21,61 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
-  `type` int(2) NOT NULL DEFAULT '0' COMMENT '数据类型',
+  `type` varchar(50) NOT NULL DEFAULT '' COMMENT '数据类型',
+  `deleted_at` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of category
 -- ----------------------------
+INSERT INTO `category` VALUES ('1', '个人预先支出', null);
+INSERT INTO `category` VALUES ('2', '个人平均', null);
+INSERT INTO `category` VALUES ('3', '个人退回', null);
+INSERT INTO `category` VALUES ('4', '个人总计', null);
+INSERT INTO `category` VALUES ('5', '单项总计', null);
+INSERT INTO `category` VALUES ('6', '整体总计', null);
+INSERT INTO `category` VALUES ('7', '社保扣除', null);
+INSERT INTO `category` VALUES ('8', '补贴', null);
+
+-- ----------------------------
+-- Table structure for `media`
+-- ----------------------------
+DROP TABLE IF EXISTS `media`;
+CREATE TABLE `media` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL COMMENT '文件名称',
+  `height` int(6) DEFAULT NULL,
+  `width` int(6) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for `paydetail`
 -- ----------------------------
 DROP TABLE IF EXISTS `paydetail`;
 CREATE TABLE `paydetail` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL COMMENT '关联的用户id',
   `type` int(2) NOT NULL DEFAULT '0' COMMENT '支出类型',
+  `date` date DEFAULT NULL,
   `price` int(10) NOT NULL,
   `created_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `update_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of paydetail
 -- ----------------------------
+INSERT INTO `paydetail` VALUES ('1', '2', '1', '2018-12-31', '6000', '2019-01-05 22:46:09', '2019-01-05 22:46:06');
+INSERT INTO `paydetail` VALUES ('2', '1', '3', '2019-01-01', '8000', '2019-01-05 22:53:13', '2019-01-05 22:53:13');
+INSERT INTO `paydetail` VALUES ('3', '3', '1', '2019-01-02', '1230', '2019-01-05 22:53:52', '2019-01-05 22:53:52');
+INSERT INTO `paydetail` VALUES ('4', '2', '1', '2018-12-31', '3600', '2019-01-05 22:59:02', '2019-01-05 22:59:02');
+INSERT INTO `paydetail` VALUES ('5', '2', '1', '2018-12-31', '9900', '2019-01-05 23:00:58', '2019-01-05 23:00:58');
+INSERT INTO `paydetail` VALUES ('6', '3', '3', '2019-01-04', '5800', '2019-01-05 23:04:32', '2019-01-05 23:04:32');
 
 -- ----------------------------
 -- Table structure for `statistic`
@@ -58,10 +103,10 @@ CREATE TABLE `user` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `nickName` varchar(50) DEFAULT 'null' COMMENT '备注，小名',
-  `age` int(3) NOT NULL DEFAULT '0' COMMENT '年龄，默认0',
+  `birth` date NOT NULL COMMENT '出生年月',
   `sex` int(1) NOT NULL DEFAULT '0' COMMENT '0：未知 1：男 2：女',
-  `avatar` varchar(255) DEFAULT NULL COMMENT '用户头像',
+  `avatar` int(10) DEFAULT '0' COMMENT '用户头像',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
