@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 
 router.use('/user', require('./users'));
 router.use('/bill', require('./bill'));
-router.use('/detail', require('./detail'));
+router.use('/record', require('./record'));
 router.use('/base', require('./base'));
 
 module.exports = router;

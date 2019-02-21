@@ -53,9 +53,9 @@ CREATE TABLE `media` (
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Table structure for `paydetail`
+-- Table structure for `record`
 -- ----------------------------
-DROP TABLE IF EXISTS `paydetail`;
+DROP TABLE IF EXISTS `record`;
 CREATE TABLE `paydetail` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL COMMENT '关联的用户id',
@@ -68,14 +68,14 @@ CREATE TABLE `paydetail` (
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of paydetail
+-- Records of record
 -- ----------------------------
-INSERT INTO `paydetail` VALUES ('1', '2', '1', '2018-12-31', '6000', '2019-01-05 22:46:09', '2019-01-05 22:46:06');
-INSERT INTO `paydetail` VALUES ('2', '1', '3', '2019-01-01', '8000', '2019-01-05 22:53:13', '2019-01-05 22:53:13');
-INSERT INTO `paydetail` VALUES ('3', '3', '1', '2019-01-02', '1230', '2019-01-05 22:53:52', '2019-01-05 22:53:52');
-INSERT INTO `paydetail` VALUES ('4', '2', '1', '2018-12-31', '3600', '2019-01-05 22:59:02', '2019-01-05 22:59:02');
-INSERT INTO `paydetail` VALUES ('5', '2', '1', '2018-12-31', '9900', '2019-01-05 23:00:58', '2019-01-05 23:00:58');
-INSERT INTO `paydetail` VALUES ('6', '3', '3', '2019-01-04', '5800', '2019-01-05 23:04:32', '2019-01-05 23:04:32');
+INSERT INTO `record` VALUES ('1', '2', '1', '2018-12-31', '6000', '2019-01-05 22:46:09', '2019-01-05 22:46:06');
+INSERT INTO `record` VALUES ('2', '1', '3', '2019-01-01', '8000', '2019-01-05 22:53:13', '2019-01-05 22:53:13');
+INSERT INTO `record` VALUES ('3', '3', '1', '2019-01-02', '1230', '2019-01-05 22:53:52', '2019-01-05 22:53:52');
+INSERT INTO `record` VALUES ('4', '2', '1', '2018-12-31', '3600', '2019-01-05 22:59:02', '2019-01-05 22:59:02');
+INSERT INTO `record` VALUES ('5', '2', '1', '2018-12-31', '9900', '2019-01-05 23:00:58', '2019-01-05 23:00:58');
+INSERT INTO `record` VALUES ('6', '3', '3', '2019-01-04', '5800', '2019-01-05 23:04:32', '2019-01-05 23:04:32');
 
 -- ----------------------------
 -- Table structure for `statistic`
