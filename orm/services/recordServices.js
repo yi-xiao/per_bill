@@ -6,7 +6,7 @@ const mediaModel = require('../model/mediaModel');
 //定义关联关系
 // userModel.belongsTo(mediaModel, { foreignKey: 'avatar', as: 'avatar_info' });
 recordModel.belongsTo(userModel,{foreignKey: 'user_id'});
-recordModel.belongsTo(categoryModel,{foreignKey: 'type'});
+recordModel.belongsTo(categoryModel,{foreignKey: 'category', as: 'category_info'});
 
 class RecordService {
     async getRecordList () {
@@ -27,7 +27,8 @@ class RecordService {
                         ]
                     },
                     {
-                        model: categoryModel
+                        model: categoryModel,
+                        as: 'category_info'
                     },
                 ],
                 where: {
@@ -43,10 +44,10 @@ class RecordService {
         });
     }
     async createdPersonHistory(info) {
-        let { user_id, price, type,date } = info;
+        let { user_id, price, category, date } = info;
         return await recordModel.create({
             user_id,
-            type,
+            category,
             price: price * 100,
             date,
             created_at: new Date().getTime(),
@@ -54,10 +55,10 @@ class RecordService {
         })
     }
     async updateRecord(info) {
-        let { id, user_id, price, type,date } = info;
+        let { id, user_id, price, category,date } = info;
         return await recordModel.update({
             user_id,
-            type,
+            category,
             price: price * 100,
             date,
             updated_at: new Date().getTime()

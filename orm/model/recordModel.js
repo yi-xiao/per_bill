@@ -3,7 +3,7 @@ let { STRING, INTEGER, DATE } = Sequelize;
 
 const recordModel = Models.define('record',{
     user_id: INTEGER,
-    type: STRING,
+    category: STRING,
     price: STRING,
     date: DATE,
     created_at: DATE,

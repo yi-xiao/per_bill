@@ -110,3 +110,6 @@ CREATE TABLE `user` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `category` ADD COLUMN `category` int(4) NOT NULL DEFAULT 0 COMMENT '回复提醒人' AFTER `id`;
+ALTER table `record` change `type` `category` int(2) NOT NULL DEFAULT '0' COMMENT '支出类型：1，收入，默认0：支出';

@@ -1,8 +1,10 @@
 let { Sequelize, Models } = require('../../model/Sequelize');
-let { STRING,DATE } = Sequelize;
+let { STRING,DATE,INTEGER } = Sequelize;
 
 const categoryModel = Models.define('category',{
-    type: STRING,
+    type: INTEGER,
+    category: INTEGER,
+    text: STRING,
     deleted_at: DATE
 }, {
     freezeTableName: true,

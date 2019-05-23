@@ -9,10 +9,11 @@ class CategoryService {
         });
     }
     async updateCategory (info) {
-        let { id, type } = info;
+        let { id, type = 0, text } = info;
         await categoryModel.upsert({
             type,
-            id
+            id,
+            text
         })
         return await this.getCategoryList();
     }
